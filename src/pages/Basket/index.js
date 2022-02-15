@@ -162,7 +162,7 @@ function Basket() {
       items: JSON.stringify(itemIds),
     };
 
-    const asaa = await postOrder(input);
+    await postOrder(input);
 
     emptyBasket();
     onClose();

@@ -3,24 +3,24 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "./reset.css";
 import App from "./App";
+import "antd/dist/antd.css";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from "react-query";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BasketProvider } from "./contexts/BasketContext";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 ReactDOM.render(
-  
   <React.StrictMode>
-   <QueryClientProvider client={queryClient}>
-    <ChakraProvider>
-    <AuthProvider>
-				<BasketProvider>
-					<App />
-				</BasketProvider>
-			</AuthProvider>
-    </ChakraProvider>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider>
+        <AuthProvider>
+          <BasketProvider>
+            <App />
+          </BasketProvider>
+        </AuthProvider>
+      </ChakraProvider>
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
