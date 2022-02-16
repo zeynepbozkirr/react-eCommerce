@@ -21,7 +21,7 @@ function Orders() {
     fetchOrders
   );
   if (isLoading) {
-    return <div>...loading</div>;
+    return <div>loading...</div>;
   }
   if (isError) {
     return <div>{error.massage}</div>;

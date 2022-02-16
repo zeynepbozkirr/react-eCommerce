@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { fetchProductList, deleteProduct } from "../../../api";
 
 import { Link } from "react-router-dom";
-import { Text } from "@chakra-ui/react";
+import { Flex, Text, Button } from "@chakra-ui/react";
 import { Table, Popconfirm } from "antd";
 
 function Products() {
@@ -65,16 +65,21 @@ function Products() {
   }, []);
 
   if (isLoading) {
-    return <div> ....loading</div>;
+    return <div> loading...</div>;
   }
   if (isError) {
     return <div> Error {error.message}</div>;
   }
   return (
     <div>
-      <Text fontSize="2xl" p="5">
-        Products
-      </Text>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontSize="2xl" p="5">
+          Products
+        </Text>
+        <Link to="/admin/products/add">
+          <Button colorScheme="pink"> ADD </Button>
+        </Link>
+      </Flex>
       <Table dataSource={data} columns={columns} rowKey="_id" />;
     </div>
   );
